@@ -1,0 +1,19 @@
+.header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C3CFD9;
+    height: 67px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 39.84px;
+    color: #E8833A;
+}
