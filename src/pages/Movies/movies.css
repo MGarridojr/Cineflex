@@ -1,0 +1,36 @@
+
+p{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    margin-top: 122px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 55px;
+    
+}
+img{
+    width: 129px;
+    height: 193px;
+    margin: 10px 0;
+}
+.posters{
+    display: flex;
+    flex-wrap: wrap;
+    width: 340px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.poster{
+    width: 145px;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
