@@ -2,12 +2,30 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../componentes/Footer/Footer";
+import Seat from "../../componentes/Seat";
 import "./seats.css"
 
 
 export default function Seats() {
     const { sessionID } = useParams()
     const [session, setSession] = useState([])
+    const [reserveSeat, setreserveSeat] = useState({
+        ids:[]
+    })
+    
+    const handleClick = (add, id)=> { 
+        if(add == true){
+
+            setreserveSeat({ids:[...reserveSeat.ids, id]})  
+            console.log(reserveSeat) 
+        }
+        else{
+            setreserveSeat({ids: reserveSeat.ids.filter((idFilter)=>{
+                return id != idFilter
+                
+            })})
+        }
+    }
     useEffect(() => {
         axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionID}/seats`)
             .then((response) => {
@@ -28,9 +46,8 @@ export default function Seats() {
 
                     {id > 0 ? seats.map((seat) => {
                         return (
-                            <div className="seat available">
-                                {seat.name}
-                            </div>
+                            <Seat seat={seat} handleClick={handleClick} />
+                            
                         )
                     })
                         : <>
@@ -55,7 +72,6 @@ export default function Seats() {
                         <p>Indisponível</p>
                     </div>
                 </div>
-            </section>
                 <div className="personalInfo">
                     <p>Nome do comprador:</p>
                     <input placeholder="Digite Seu nome..."></input>
@@ -68,6 +84,7 @@ export default function Seats() {
 
                 <button>Reservar assento(s)</button>
                 </div>
+            </section>
                 {id>0 ? <Footer titulo={movie.title} url={movie.posterURL} data={day.weekday} horario={name}/>
                 : <></>}
         </>

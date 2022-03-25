@@ -20,11 +20,11 @@ export default function Sessions(){
             })
         }, []
         )
-        const {title, posterUrl, days} = movie
+        const {title, posterUrl, days, id} = movie
     return(
         <div className="page">
         <p>Selecione o Horário</p>
-        {movie.id>0 ? days.map((day =>  {
+        {id>0 ? days.map((day =>  {
             return(
                 <div className="date">
                     <p>{day.weekday} {day.date}</p>

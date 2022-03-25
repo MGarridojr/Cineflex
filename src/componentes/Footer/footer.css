@@ -6,7 +6,9 @@ footer {
     bottom: 0;
     background-color: #DFE6ED;
     width: 100%;
-    padding-left: 18px;
+    height: 140px;
+    padding-left: 50px;
+    padding-bottom: 10px;
 }
 
 .info {
@@ -16,9 +18,12 @@ footer {
     padding-left: 15px;
 }
 
-.poster {
+footer .poster {
 
     margin-top: 14px;
+    width: 64px;
+    height: 89px;
+    background-color: #FFFFFF;
 }
 
 .info p {
@@ -31,4 +36,9 @@ footer {
     margin: 3px;
     display: flex;
     justify-content: left;
+}
+
+footer img {
+    width: 48px;
+    height: 72px;
 }
