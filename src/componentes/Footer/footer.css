@@ -1,0 +1,31 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    background-color: #DFE6ED;
+    width: 100%;
+    padding-left: 18px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.poster {
+
+    margin-top: 14px;
+}
+
+.info p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    color: #293845;
+}
