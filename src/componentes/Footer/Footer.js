@@ -8,7 +8,7 @@ export default function Footer(props) {
             </div>
             <div className="info">
                 <p>{titulo}</p>
-                {data ? <p>{data}-{horario}</p>
+                {data ? <p>{data} - {horario}</p>
                     : ""}
             </div>
         </footer>
