@@ -6,13 +6,13 @@ export default function Seat(props) {
     const{seat, handleClick} = props
     const chossenSeat = (seat)=>{
         if(seat.isAvailable == true){
-            handleClick(true, seat.id)
+            handleClick(true, seat.id, seat.name)
             setSelect(true) 
         }else{
           alert("Esse assento não está disponível")    
         }
         if(select == true){
-            handleClick(false, seat.id)
+            handleClick(false, seat.id, seat.name)
             setSelect(false)
         }
         }

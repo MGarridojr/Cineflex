@@ -11,7 +11,8 @@ export default function Seats() {
     const { sessionID } = useParams()
     const [session, setSession] = useState([])
     const [reserveSeat, setreserveSeat] = useState({
-        ids: []
+        ids: [],
+        names:[]
     })
     const [userName, setUserName] = useState("")
     const [cpf, setCpf] = useState("")
@@ -20,22 +21,17 @@ export default function Seats() {
         name: userName,
         cpf: cpf
     }
-    // const route = {
-    //     cpf: cpf,
-    //     name: userName,
-    //     title: movie.title,
-    //     day: day.weekday,
-    //     hour: name,
-    //     ticket: reserveSeat.ids
-    // }
-
-    const handleClick = (add, id) => {
+    const handleClick = (add, id, name) => {
         if (add == true) {
-            setreserveSeat({ ids: [...reserveSeat.ids, id] })
+            setreserveSeat({ ids: [...reserveSeat.ids, id],
+                names:[...reserveSeat.names, name] })
         }
         else {
             setreserveSeat({
                 ids: reserveSeat.ids.filter((idFilter) => {
+                    return id != idFilter
+                }),
+                names: reserveSeat.ids.filter((idFilter) => {
                     return id != idFilter
                 })
             })
@@ -115,13 +111,13 @@ export default function Seats() {
 
         axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", postObject)
             .then(() => {
-                navigate("/sucesso", {route:{
+                navigate("/sucesso", {state:{
                     cpf: cpf,
                     name: userName,
                     title: movie.title,
                     day: day.weekday,
                     hour: name,
-                    ticket: reserveSeat.ids
+                    ticket: reserveSeat.names
                 }})
             })
             .catch((error) => console.log(error))

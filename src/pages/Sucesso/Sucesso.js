@@ -1,8 +1,8 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useLocation} from "react-router-dom"
 import "./sucesso.css"
-export default function Sucesso({route, navigation}) {
-    route = useParams()
-    const {title, day, hour, ticket, name, cpf } = route
+export default function Sucesso() {
+    const {state} = useLocation()
+    const {title, day, hour, ticket, name, cpf } = state
     return (
         <>
             <body>
@@ -19,7 +19,14 @@ export default function Sucesso({route, navigation}) {
                     <article>
                         <p>Ingressos</p>
                         <div className="data">
-                            <p>{ticket}</p>
+                            {ticket.map((seat)=>{
+                                return(
+                                    <>
+                                    <p>Assento {seat}</p>
+                                    </>
+                                    )
+                            })}
+                            
                         </div>
                     </article>
                     <article>
